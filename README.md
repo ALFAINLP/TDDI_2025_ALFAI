@@ -10,7 +10,7 @@ Bu proje; **çağrı merkezi/telekom müşteri işlemleri** senaryolarını çal
 ## Önkoşullar
 
 - **Python 3.10+** (önerilen)
-- **Node.js 18+** ve **npm** (ön yüz için)
+- **Node.js 16+** ve **npm** (ön yüz için)
 - **Ollama** (LLM servisi; `qwen3:32b` modelini çekecek)
 - **Git** (opsiyonel)
 - **FFmpeg** (Whisper için önerilir)
