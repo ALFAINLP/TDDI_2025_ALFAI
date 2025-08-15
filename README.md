@@ -175,18 +175,6 @@ ollama serve
 
 ---
 
-## Sık Karşılaşılan Sorunlar
-
-- **Döngüsel import (circular import)**: `tools.py` ve `tool_registry.py` karşılıklı import ediyorsa modül yüklenirken `ImportError` alabilirsiniz. Çözüm:
-  - Ortak tipleri/şemaları ayrı bir `types.py` modülüne taşıyın.
-  - `tool_registry` erişimini fonksiyon içinde (geç yükleme) yapın veya bağımlılığı tersine çevirin.
-- **Pydantic/LC sürüm uyuşmazlığı**: `pydantic v2` ile **langchain** versiyonları uyumsuz olabilir.
-  - `pip install "pydantic<3" "langchain-community>=0.3.0" "langchain-ollama>=0.2.0"`
-- **Whisper/FFmpeg**: `whisper` ile ses analizi için sistemde FFmpeg bulunmalıdır.
-- **DB şeması**: `mock_apis.py` içindeki tablo adları ve alanlar ile eşleşmeyen bir şema, fonksiyon çağrılarını kırar.
-
----
-
 ## Lisans
 
 Bu proje için lisans bilgisi ekleyin (MIT/Apache-2.0 vb.).
