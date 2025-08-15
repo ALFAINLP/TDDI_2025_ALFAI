@@ -33,7 +33,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-JSON_FILE = "/home/hpc/Desktop/agent_skeleton (8)/agent_skeleton/agent_memory.json"
+JSON_FILE = ../../agent_memory.json"
 
 # ----------------- Pydantic Modeller -----------------
 class TextRequest(BaseModel):
@@ -287,3 +287,4 @@ def get_agent_plots():
     buf.seek(0)
     plt.close(fig)
     return StreamingResponse(buf, media_type="image/png")
+
