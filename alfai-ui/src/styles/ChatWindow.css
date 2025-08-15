@@ -1,0 +1,200 @@
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Üst başlık */
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid #555;
+  font-weight: bold;
+  background-color: #2d2f33;
+  color: #ff8c00;
+  font-size: 1.1rem;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+
+  background-color: #383e42;
+
+  background-image: url("../assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: 60% center; /* logoyu sağa kaydırır */
+  background-size: 500px;
+  background-attachment: fixed;
+
+  background-blend-mode: overlay;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.agent {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message-row.user .message-bubble {
+  background-color: #4FCE5D;
+  color: white;
+}
+
+.message-row.agent .message-bubble {
+  background-color: #e2e8f0;
+  color: black;
+}
+
+/* Mesaj yazma alanı - ChatGPT tarzı */
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 10px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  font-size: 15px;
+  background: transparent;
+  resize: none; /* Kullanıcı boyut değiştiremesin */
+  overflow-wrap: break-word; /* Uzun kelimeler taşmasın */
+  word-break: break-word;
+  white-space: pre-wrap; /* Boşlukları ve satır sonlarını koru */
+  min-height: 40px; /* Görsel olarak güzel dursun */
+  max-height: 150px; /* Çok uzun olmasın */
+  overflow-y: auto;
+}
+
+.send-button {
+  padding: 10px 18px;
+  background: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.send-button:hover {
+  background: #ff8c00;
+}
+
+.mic-button {
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.mic-button:hover {
+  background-color: #555;
+}
+
+.mic-button.recording {
+  background-color: red;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,0,0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255,0,0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0, 0); }
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal içeriği */
+.modal-content {
+  background-color: #2d2f33;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(255,140,0,0.6);
+  position: relative;
+  text-align: center;
+}
+
+/* Kapatma butonu */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #ff8c00;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Kaydet/durdur butonları */
+.record-button, .stop-button {
+  background-color: #ff8c00;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.record-button:hover, .stop-button:hover {
+  background-color: #ff7000;
+}
+
+.blurred {
+  filter: blur(3px);
+  pointer-events: none;
+}
